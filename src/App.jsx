@@ -44,7 +44,6 @@ export const App = () => {
           className={`button is-info ${sortedNow === 'alphabetic' ? '' : 'is-light'}`}
           onClick={() => {
             setSortedNow('alphabetic');
-            setIsReversed(false);
           }}
         >
           Sort alphabetically
@@ -55,7 +54,6 @@ export const App = () => {
           className={`button is-success  ${sortedNow === 'length' ? '' : 'is-light'}`}
           onClick={() => {
             setSortedNow('length');
-            setIsReversed(false);
           }}
         >
           Sort by length
@@ -93,3 +91,5 @@ export const App = () => {
     </div>
   );
 };
+
+// create some code for another commit
