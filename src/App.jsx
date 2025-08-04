@@ -15,8 +15,8 @@ export const goodsFromServer = [
   'Garlic',
 ];
 export const App = () => {
-  const [sortedNow, setsortedNow] = useState('');
-  const [isReversed, setisReversed] = useState(false);
+  const [sortedNow, setSortedNow] = useState('');
+  const [isReversed, setIsReversed] = useState(false);
 
   const getSortedBy = () => {
     const preparedGoods = [...goodsFromServer];
@@ -42,7 +42,10 @@ export const App = () => {
         <button
           type="button"
           className={`button is-info ${sortedNow === 'alphabetic' ? '' : 'is-light'}`}
-          onClick={() => setsortedNow('alphabetic')}
+          onClick={() => {
+            setSortedNow('alphabetic');
+            setIsReversed(false);
+          }}
         >
           Sort alphabetically
         </button>
@@ -50,7 +53,10 @@ export const App = () => {
         <button
           type="button"
           className={`button is-success  ${sortedNow === 'length' ? '' : 'is-light'}`}
-          onClick={() => setsortedNow('length')}
+          onClick={() => {
+            setSortedNow('length');
+            setIsReversed(false);
+          }}
         >
           Sort by length
         </button>
@@ -58,7 +64,7 @@ export const App = () => {
         <button
           type="button"
           className={`button is-warning  ${isReversed ? '' : 'is-light'}`}
-          onClick={() => setisReversed(prev => !prev)}
+          onClick={() => setIsReversed(prev => !prev)}
         >
           Reverse
         </button>
@@ -68,8 +74,8 @@ export const App = () => {
             type="button"
             className="button is-danger is-light"
             onClick={() => {
-              setsortedNow('');
-              setisReversed(false);
+              setSortedNow('');
+              setIsReversed(false);
             }}
           >
             Reset
